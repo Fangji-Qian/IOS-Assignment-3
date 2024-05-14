@@ -5,6 +5,13 @@
 //  Created by 李昌霖 on 13/5/2024.
 //
 
+//
+//  ExploreView.swift
+//  IOS Assignment 3
+//
+//  Created by 李昌霖 on 13/5/2024.
+//
+
 import SwiftUI
 
 struct ExploreView: View {
@@ -22,14 +29,18 @@ struct ExploreView: View {
                     GradientColorBackground()
                     
                     VStack {
-                        Spacer().frame(height: 150)
+                        Spacer().frame(height: 100)
                         CustomSearchBar(searchText: $searchText)
-                        Spacer().frame(height: 60)
+                            .padding(.horizontal)
+                        Spacer().frame(height: 40)
                         if searchText.isEmpty {
                             PopularBrandsView(viewModel: viewModel)
+                                .padding(.horizontal)
                         } else {
                             TopCarsView(cars: filteredCars)
+                                .padding(.horizontal)
                         }
+                        Spacer()
                     }
                 }
             }
@@ -53,9 +64,10 @@ struct ExploreView: View {
 struct GradientColorBackground: View {
     var body: some View {
         VStack {
-            LinearGradient(colors: [.gray, .blue], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [.red, .orange], startPoint: .top, endPoint: .bottom)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
             Spacer()
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
