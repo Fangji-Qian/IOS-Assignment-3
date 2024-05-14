@@ -31,15 +31,15 @@ class ExploreViewModel: ObservableObject {
         
         Car(id: UUID().uuidString, carName: "Holden Colorado", rating: 4.6, brand: "HOLDEN", pricePerDay: 225, description: "", mainImageName: "Holden_2_1", imagesNames: [], insurance: "", numberOfSeats: 2, numberOfDoors: 2, GasType: "91#", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: false),
     
-        Car(id: UUID().uuidString, carName: "Audi A3", rating: 4.6, brand: "Audi", pricePerDay: 250, description: "", mainImageName: "", imagesNames: [], insurance: "", numberOfSeats: 4, numberOfDoors: 4, GasType: "97#", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: true),
+        Car(id: UUID().uuidString, carName: "Audi A3", rating: 4.6, brand: "Audi", pricePerDay: 250, description: "", mainImageName: "Audi_1_1", imagesNames: ["Audi_1_1","Audi_1_2","Audi1_3","Audi_1_4","Audi_1_5"], insurance: "", numberOfSeats: 4, numberOfDoors: 4, GasType: "97#", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: true),
     
         Car(id: UUID().uuidString, carName: "Audi Q5", rating: 4.7, brand: "Audi", pricePerDay: 300, description: "A very good and confortable SUV.", mainImageName: "Audi_2_1", imagesNames: ["Audi_2_1","Audi_2_2","Audi_2_3"], insurance: "", numberOfSeats: 4, numberOfDoors: 4, GasType: "97#", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: false),
     
         Car(id: UUID().uuidString, carName: "Bentley Continental GT S", rating: 4.8, brand: "BENTLEY", pricePerDay: 400, description: "", mainImageName: "", imagesNames: [], insurance: "", numberOfSeats: 4, numberOfDoors: 4, GasType: "", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: true),
         
-        Car(id: UUID().uuidString, carName: "Bentley Continental GTC V8", rating: 4.8, brand: "BENYLEY", pricePerDay: 450, description: "", mainImageName: "", imagesNames: [], insurance: "", numberOfSeats: 2, numberOfDoors: 2, GasType: "", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: true),
+        Car(id: UUID().uuidString, carName: "Bentley Continental GTC V8", rating: 4.8, brand: "BENYLEY", pricePerDay: 450, description: "", mainImageName: "Bentley_1_1", imagesNames: ["Bentley_1_1","Bentley_1_2","Bentley_1_3","Bentley_1_4"], insurance: "", numberOfSeats: 2, numberOfDoors: 2, GasType: "", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: true),
     
-        Car(id: UUID().uuidString, carName: "BMW X5", rating: 4.6, brand: "BMW", pricePerDay: 250, description: "", mainImageName: "", imagesNames: [], insurance: "", numberOfSeats: 6, numberOfDoors: 4, GasType: "", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: false),
+        Car(id: UUID().uuidString, carName: "BMW X5", rating: 4.6, brand: "BMW", pricePerDay: 250, description: "", mainImageName: "Bentley_2_1", imagesNames: ["Bentley_2_1","Bentley_2_2","Bentley_2_3"], insurance: "", numberOfSeats: 6, numberOfDoors: 4, GasType: "", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: false),
 
         Car(id: UUID().uuidString, carName: "Volks Golf R333", rating: 4.5, brand: "VOLKS", pricePerDay: 200, description: "", mainImageName: "", imagesNames: [], insurance: "", numberOfSeats: 4, numberOfDoors: 4, GasType: "", hostName: "", hostImageName: "", hostJoinDate: "", isFavorite: false),
         

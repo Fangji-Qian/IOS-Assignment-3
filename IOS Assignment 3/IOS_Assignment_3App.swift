@@ -11,7 +11,7 @@ import SwiftUI
 struct IOS_Assignment_3App: App {
     var body: some Scene {
         WindowGroup {
-            MainTabbarView()
+            LoginView()
         }
     }
 }
