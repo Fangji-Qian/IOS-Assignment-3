@@ -29,6 +29,9 @@
 		849EED212BF24F65005396A7 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EED202BF24F65005396A7 /* Car.swift */; };
 		849EED232BF24F85005396A7 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EED222BF24F85005396A7 /* Brand.swift */; };
 		849EED252BF24FB5005396A7 /* BrandsCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EED242BF24FB5005396A7 /* BrandsCarView.swift */; };
+		849EED2A2BF337B3005396A7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EED292BF337B3005396A7 /* LoginView.swift */; };
+		849EED2C2BF337F6005396A7 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EED2B2BF337F6005396A7 /* RegisterView.swift */; };
+		849EED2E2BF33829005396A7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EED2D2BF33829005396A7 /* DatabaseManager.swift */; };
 		84BE5AF22BEE200A00A8864C /* IOS_Assignment_3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5AF12BEE200A00A8864C /* IOS_Assignment_3App.swift */; };
 		84BE5AF42BEE200A00A8864C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5AF32BEE200A00A8864C /* ContentView.swift */; };
 		84BE5AF62BEE200C00A8864C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BE5AF52BEE200C00A8864C /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		849EED202BF24F65005396A7 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		849EED222BF24F85005396A7 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		849EED242BF24FB5005396A7 /* BrandsCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCarView.swift; sourceTree = "<group>"; };
+		849EED292BF337B3005396A7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		849EED2B2BF337F6005396A7 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		849EED2D2BF33829005396A7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		84BE5AEE2BEE200A00A8864C /* IOS Assignment 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS Assignment 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE5AF12BEE200A00A8864C /* IOS_Assignment_3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_Assignment_3App.swift; sourceTree = "<group>"; };
 		84BE5AF32BEE200A00A8864C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 		61AFBB0E2BEF081E00ECCF95 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				849EED282BF33790005396A7 /* Login&Register */,
 				610D49FD2BF0F059002C1D7F /* Trips */,
 				610D49FC2BF0F046002C1D7F /* Tabbar */,
 				610D49FB2BF0F038002C1D7F /* More */,
@@ -262,6 +269,16 @@
 				610D4A022BF0F11C002C1D7F /* Views */,
 			);
 			name = Favorites;
+			sourceTree = "<group>";
+		};
+		849EED282BF33790005396A7 /* Login&Register */ = {
+			isa = PBXGroup;
+			children = (
+				849EED292BF337B3005396A7 /* LoginView.swift */,
+				849EED2B2BF337F6005396A7 /* RegisterView.swift */,
+				849EED2D2BF33829005396A7 /* DatabaseManager.swift */,
+			);
+			path = "Login&Register";
 			sourceTree = "<group>";
 		};
 		84BE5AE52BEE200A00A8864C = {
@@ -464,7 +481,9 @@
 				849EED232BF24F85005396A7 /* Brand.swift in Sources */,
 				8456B1B92BF1DD2700E2C4F4 /* CustomSearchBar.swift in Sources */,
 				61675D202BF1901A00C24728 /* NotificationsView.swift in Sources */,
+				849EED2A2BF337B3005396A7 /* LoginView.swift in Sources */,
 				61675D1E2BF18FE800C24728 /* InboxView.swift in Sources */,
+				849EED2C2BF337F6005396A7 /* RegisterView.swift in Sources */,
 				61675D1A2BF18F0500C24728 /* MoreView.swift in Sources */,
 				61675D302BF1BA7A00C24728 /* DetailCarView.swift in Sources */,
 				61675D182BF18E5E00C24728 /* MainTabbarView.swift in Sources */,
@@ -475,6 +494,7 @@
 				84BE5AF22BEE200A00A8864C /* IOS_Assignment_3App.swift in Sources */,
 				8456B1BD2BF1DD3700E2C4F4 /* PopularBrandsView.swift in Sources */,
 				61675D362BF1BB0D00C24728 /* TripDateView.swift in Sources */,
+				849EED2E2BF33829005396A7 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
