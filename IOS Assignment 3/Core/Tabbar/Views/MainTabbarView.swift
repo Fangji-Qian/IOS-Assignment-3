@@ -11,53 +11,48 @@ struct MainTabbarView: View {
     @StateObject private var viewModel = ExploreViewModel()
     
     var body: some View {
-        TabView {
-            ExploreView(viewModel: viewModel)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "magnifyingglass")
-                        Text("Explore")
+        NavigationStack {
+            TabView {
+                ExploreView(viewModel: viewModel)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "magnifyingglass")
+                            Text("Explore")
+                        }
                     }
-                }
-            
-            FavoritesView(viewModel: viewModel)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "heart")
-                        Text("Favorite")
+                
+                FavoritesView(viewModel: viewModel)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "heart")
+                            Text("Favorite")
+                        }
                     }
-                }
-                .padding()
-            
-            TripsView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "car")
-                        Text("Travel")
+                
+                TripsView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "car")
+                            Text("Travel")
+                        }
                     }
-                }
-                .padding()
-            
-            InboxView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "message")
-                        Text("Message")
+                
+                InboxView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "message")
+                            Text("Message")
+                        }
                     }
-                }
-                .padding()
-            
-            MoreView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "ellipsis")
-                        Text("More")
+                
+                MoreView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "ellipsis")
+                            Text("More")
+                        }
                     }
-                }
-                .padding()
-        }
-        .onAppear {
-            UITabBar.appearance().backgroundColor = .white
+            }
         }
     }
 }

@@ -17,17 +17,16 @@ import SwiftUI
 struct ExploreView: View {
     @StateObject var viewModel: ExploreViewModel
     @State private var searchText: String = ""
-    
+
     init(viewModel: ExploreViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
-    
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 ZStack {
                     GradientColorBackground()
-                    
                     VStack {
                         Spacer().frame(height: 100)
                         CustomSearchBar(searchText: $searchText)
@@ -44,10 +43,10 @@ struct ExploreView: View {
                     }
                 }
             }
-            .modifier(NavigationModifier())
         }
+        .modifier(NavigationModifier())
     }
-    
+
     private var filteredCars: [Car] {
         if searchText.isEmpty {
             return viewModel.cars

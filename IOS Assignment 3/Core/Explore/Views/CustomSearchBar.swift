@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomSearchBar: View {
     @Binding var searchText: String
-    
+
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
@@ -17,7 +17,7 @@ struct CustomSearchBar: View {
                 .foregroundStyle(.white)
             TextField("Search a car...", text: $searchText)
                 .font(.footnote)
-                .foregroundStyle(.white)
+                .foregroundStyle(.black)
             Spacer()
         }
         .frame(height: 60)

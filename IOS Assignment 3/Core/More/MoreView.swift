@@ -17,7 +17,8 @@ struct MoreView: View {
     ]
     @State private var showAlert: Bool = false
     @State private var displayEditProfileView: Bool = false
-    
+    @State private var navigateToLogin: Bool = false
+
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
@@ -27,7 +28,7 @@ struct MoreView: View {
                     }, label: {
                         HeaderView()
                     })
-                    
+
                     VStack(spacing: 25) {
                         ForEach(parametersOptions, id: \.0) { option in
                             NavigationLink(destination: destinationView(for: option.0)) {
@@ -44,9 +45,9 @@ struct MoreView: View {
                             }
                         }
                     }
-                    
+
                     Divider().padding(.vertical, 20)
-                    
+
                     VStack(spacing: 25) {
                         Button(action: {
                             showAlert.toggle()
@@ -55,7 +56,7 @@ struct MoreView: View {
                                 .fontWeight(.semibold)
                                 .foregroundColor(.red)
                         })
-                        
+
                         Text("version 2.4.3")
                             .font(.caption)
                             .foregroundColor(.gray)
@@ -65,7 +66,9 @@ struct MoreView: View {
                 .padding(.vertical, 20)
             }
             .alert("Confirm again", isPresented: $showAlert, actions: {
-                Button("Logout") { }
+                Button("Logout") {
+                    navigateToLogin = true
+                }
                 Button("Cancel", role: .cancel) {}
             })
             .background(Color(.systemGray6))
@@ -73,9 +76,12 @@ struct MoreView: View {
             .fullScreenCover(isPresented: $displayEditProfileView, content: {
                 EditProfileView()
             })
+            .fullScreenCover(isPresented: $navigateToLogin, content: {
+                LoginView()
+            })
         }
     }
-    
+
     @ViewBuilder
     private func destinationView(for option: String) -> some View {
         switch option {

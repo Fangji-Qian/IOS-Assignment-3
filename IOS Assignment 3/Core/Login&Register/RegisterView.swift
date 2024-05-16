@@ -13,9 +13,10 @@ struct RegisterView: View {
     @State private var alertMessage: String = ""
     @State private var showAlert: Bool = false
     @State private var isRegistrationComplete: Bool = false
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Text("Register")
                     .font(.largeTitle)
@@ -33,15 +34,13 @@ struct RegisterView: View {
                 Button(action: {
                     if validatePassword(password) {
                         registerUser(email: email, password: password)
-                    }
-                    else {
-                        self.alertMessage = "Password must contail at least one uppercase, one lowercase and one number, 8-15 characters long."
+                    } else {
+                        self.alertMessage = "Password must contain at least one uppercase, one lowercase, and one number, and be 8-15 characters long."
                         self.showAlert = true
                     }
-                })
-                {
+                }) {
                     Text("Register")
-                        .foregroundStyle(.white)
+                        .foregroundColor(.white)
                         .frame(width: 200, height: 50)
                         .background(Color.gray)
                         .cornerRadius(10)
@@ -56,8 +55,8 @@ struct RegisterView: View {
                 }
                 
                 NavigationLink(destination: LoginView()) {
-                    Text("Already have account?")
-                        .foregroundStyle(Color.blue)
+                    Text("Already have an account?")
+                        .foregroundColor(.blue)
                 }
             }
             .padding()
@@ -67,8 +66,8 @@ struct RegisterView: View {
     func registerUser(email: String, password: String) {
         if DatabaseManager.shared.registerUser(email: email, password: password) {
             isRegistrationComplete = true
-        }
-        else {
+            presentationMode.wrappedValue.dismiss() // 返回上一个视图
+        } else {
             alertMessage = "Registration failed. Please try again."
             showAlert = true
         }

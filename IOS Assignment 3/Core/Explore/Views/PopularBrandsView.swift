@@ -9,10 +9,11 @@ import SwiftUI
 
 struct PopularBrandsView: View {
     @StateObject private var viewModel: ExploreViewModel
+
     init(viewModel: ExploreViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -20,7 +21,6 @@ struct PopularBrandsView: View {
                     .font(.headline)
                     .fontWeight(.semibold)
                 Spacer()
-                
                 Button(action: {}, label: {
                     Text("See All")
                         .font(.footnote)
@@ -29,7 +29,7 @@ struct PopularBrandsView: View {
             }
             .foregroundStyle(.white)
             .padding()
-            
+
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(viewModel.brand) { brand in
