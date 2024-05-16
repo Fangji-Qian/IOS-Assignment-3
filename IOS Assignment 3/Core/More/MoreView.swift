@@ -30,16 +30,18 @@ struct MoreView: View {
                     
                     VStack(spacing: 25) {
                         ForEach(parametersOptions, id: \.0) { option in
-                            HStack {
-                                option.1
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                Text(option.0)
-                                    .padding(.leading, 10)
-                                Spacer()
+                            NavigationLink(destination: destinationView(for: option.0)) {
+                                HStack {
+                                    option.1
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                    Text(option.0)
+                                        .padding(.leading, 10)
+                                    Spacer()
+                                }
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
                             }
-                            .padding(.horizontal)
-                            .padding(.vertical, 10)
                         }
                     }
                     
@@ -51,12 +53,12 @@ struct MoreView: View {
                         }, label: {
                             Text("Logout")
                                 .fontWeight(.semibold)
-                                .foregroundStyle(.red)
+                                .foregroundColor(.red)
                         })
                         
                         Text("version 2.4.3")
                             .font(.caption)
-                            .foregroundStyle(.gray)
+                            .foregroundColor(.gray)
                     }
                     .padding(.horizontal)
                 }
@@ -69,13 +71,31 @@ struct MoreView: View {
             .background(Color(.systemGray6))
             .ignoresSafeArea()
             .fullScreenCover(isPresented: $displayEditProfileView, content: {
-                EditProfileView() 
+                EditProfileView()
             })
+        }
+    }
+    
+    @ViewBuilder
+    private func destinationView(for option: String) -> some View {
+        switch option {
+        case "Account":
+            EditProfileView()
+        case "How UTS RENTCAR works":
+            HowItWorksView()
+        case "Contact Support":
+            ContactSupportView()
+        case "Legal":
+            LegalView()
+        case "Open source license":
+            OpenSourceLicenseView()
+        default:
+            EmptyView()
         }
     }
 }
 
-// prview
+// Preview
 struct MoreView_Previews: PreviewProvider {
     static var previews: some View {
         MoreView()
@@ -98,7 +118,7 @@ struct HeaderView: View {
                         .fontWeight(.semibold)
                     Text("View and edit your profile")
                         .font(.caption)
-                        .foregroundStyle(.blue)
+                        .foregroundColor(.blue)
                 }
                 Spacer()
             }

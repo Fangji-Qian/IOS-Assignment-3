@@ -20,6 +20,10 @@
 		61675D322BF1BAB000C24728 /* MyInsuranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61675D312BF1BAB000C24728 /* MyInsuranceView.swift */; };
 		61675D342BF1BAEA00C24728 /* ImageViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61675D332BF1BAEA00C24728 /* ImageViewPager.swift */; };
 		61675D362BF1BB0D00C24728 /* TripDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61675D352BF1BB0D00C24728 /* TripDateView.swift */; };
+		6172DC6B2BF5D5CA007FC0E5 /* HowItWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC6A2BF5D5CA007FC0E5 /* HowItWorksView.swift */; };
+		6172DC6D2BF5D5EC007FC0E5 /* ContactSupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC6C2BF5D5EC007FC0E5 /* ContactSupportView.swift */; };
+		6172DC6F2BF5D614007FC0E5 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC6E2BF5D614007FC0E5 /* LegalView.swift */; };
+		6172DC712BF5D62D007FC0E5 /* OpenSourceLicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC702BF5D62D007FC0E5 /* OpenSourceLicenseView.swift */; };
 		8456B1B32BF1BFA300E2C4F4 /* CustomCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B22BF1BFA300E2C4F4 /* CustomCarView.swift */; };
 		8456B1B52BF1BFCB00E2C4F4 /* EmpthElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B42BF1BFCB00E2C4F4 /* EmpthElementView.swift */; };
 		8456B1B72BF1C03100E2C4F4 /* NavigationStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B62BF1C03100E2C4F4 /* NavigationStackModifier.swift */; };
@@ -72,6 +76,10 @@
 		61675D312BF1BAB000C24728 /* MyInsuranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInsuranceView.swift; sourceTree = "<group>"; };
 		61675D332BF1BAEA00C24728 /* ImageViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewPager.swift; sourceTree = "<group>"; };
 		61675D352BF1BB0D00C24728 /* TripDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateView.swift; sourceTree = "<group>"; };
+		6172DC6A2BF5D5CA007FC0E5 /* HowItWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowItWorksView.swift; sourceTree = "<group>"; };
+		6172DC6C2BF5D5EC007FC0E5 /* ContactSupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSupportView.swift; sourceTree = "<group>"; };
+		6172DC6E2BF5D614007FC0E5 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
+		6172DC702BF5D62D007FC0E5 /* OpenSourceLicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseView.swift; sourceTree = "<group>"; };
 		8456B1B22BF1BFA300E2C4F4 /* CustomCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCarView.swift; path = Views/CustomCarView.swift; sourceTree = SOURCE_ROOT; };
 		8456B1B42BF1BFCB00E2C4F4 /* EmpthElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmpthElementView.swift; path = Views/EmpthElementView.swift; sourceTree = SOURCE_ROOT; };
 		8456B1B62BF1C03100E2C4F4 /* NavigationStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationStackModifier.swift; path = Views/NavigationStackModifier.swift; sourceTree = SOURCE_ROOT; };
@@ -133,7 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				61675D192BF18F0500C24728 /* MoreView.swift */,
+				6172DC702BF5D62D007FC0E5 /* OpenSourceLicenseView.swift */,
 				61675D1B2BF18F4900C24728 /* EditProfileView.swift */,
+				6172DC6A2BF5D5CA007FC0E5 /* HowItWorksView.swift */,
+				6172DC6C2BF5D5EC007FC0E5 /* ContactSupportView.swift */,
+				6172DC6E2BF5D614007FC0E5 /* LegalView.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -477,8 +489,11 @@
 				61675D162BF18DC200C24728 /* TripsView.swift in Sources */,
 				61675D322BF1BAB000C24728 /* MyInsuranceView.swift in Sources */,
 				8456B1B32BF1BFA300E2C4F4 /* CustomCarView.swift in Sources */,
+				6172DC712BF5D62D007FC0E5 /* OpenSourceLicenseView.swift in Sources */,
+				6172DC6D2BF5D5EC007FC0E5 /* ContactSupportView.swift in Sources */,
 				84BE5AF42BEE200A00A8864C /* ContentView.swift in Sources */,
 				849EED232BF24F85005396A7 /* Brand.swift in Sources */,
+				6172DC6B2BF5D5CA007FC0E5 /* HowItWorksView.swift in Sources */,
 				8456B1B92BF1DD2700E2C4F4 /* CustomSearchBar.swift in Sources */,
 				61675D202BF1901A00C24728 /* NotificationsView.swift in Sources */,
 				849EED2A2BF337B3005396A7 /* LoginView.swift in Sources */,
@@ -488,6 +503,7 @@
 				61675D302BF1BA7A00C24728 /* DetailCarView.swift in Sources */,
 				61675D182BF18E5E00C24728 /* MainTabbarView.swift in Sources */,
 				849EED252BF24FB5005396A7 /* BrandsCarView.swift in Sources */,
+				6172DC6F2BF5D614007FC0E5 /* LegalView.swift in Sources */,
 				8456B1B52BF1BFCB00E2C4F4 /* EmpthElementView.swift in Sources */,
 				61675D242BF1919B00C24728 /* ExploreViewModel.swift in Sources */,
 				849EED212BF24F65005396A7 /* Car.swift in Sources */,
