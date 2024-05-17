@@ -5,21 +5,16 @@
 //  Created by 李昌霖 on 13/5/2024.
 //
 
-//
-//  ExploreView.swift
-//  IOS Assignment 3
-//
-//  Created by 李昌霖 on 13/5/2024.
-//
-
 import SwiftUI
 
 struct ExploreView: View {
     @StateObject var viewModel: ExploreViewModel
     @State private var searchText: String = ""
+    @Binding var bookedTrips: [Trip] // Add bookedTrips binding
 
-    init(viewModel: ExploreViewModel) {
+    init(viewModel: ExploreViewModel, bookedTrips: Binding<[Trip]>) {
         self._viewModel = StateObject(wrappedValue: viewModel)
+        self._bookedTrips = bookedTrips 
     }
 
     var body: some View {
@@ -33,10 +28,10 @@ struct ExploreView: View {
                             .padding(.horizontal)
                         Spacer().frame(height: 40)
                         if searchText.isEmpty {
-                            PopularBrandsView(viewModel: viewModel)
+                            PopularBrandsView(viewModel: viewModel, bookedTrips: $bookedTrips)
                                 .padding(.horizontal)
                         } else {
-                            TopCarsView(cars: filteredCars)
+                            TopCarsView(cars: filteredCars, bookedTrips: $bookedTrips)
                                 .padding(.horizontal)
                         }
                         Spacer()
@@ -57,7 +52,7 @@ struct ExploreView: View {
 }
 
 #Preview {
-    ExploreView(viewModel: ExploreViewModel())
+    ExploreView(viewModel: ExploreViewModel(), bookedTrips: .constant([]))
 }
 
 struct GradientColorBackground: View {

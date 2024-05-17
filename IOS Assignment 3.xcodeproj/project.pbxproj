@@ -26,6 +26,7 @@
 		6172DC712BF5D62D007FC0E5 /* OpenSourceLicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC702BF5D62D007FC0E5 /* OpenSourceLicenseView.swift */; };
 		6177289D2BF742D8006015DD /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177289C2BF742D8006015DD /* PaymentView.swift */; };
 		6177289F2BF74F01006015DD /* DatePickerPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177289E2BF74F01006015DD /* DatePickerPopover.swift */; };
+		617B36F42BF7819500079BFE /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B36F32BF7819500079BFE /* Trip.swift */; };
 		8456B1B32BF1BFA300E2C4F4 /* CustomCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B22BF1BFA300E2C4F4 /* CustomCarView.swift */; };
 		8456B1B52BF1BFCB00E2C4F4 /* EmpthElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B42BF1BFCB00E2C4F4 /* EmpthElementView.swift */; };
 		8456B1B72BF1C03100E2C4F4 /* NavigationStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B62BF1C03100E2C4F4 /* NavigationStackModifier.swift */; };
@@ -84,6 +85,7 @@
 		6172DC702BF5D62D007FC0E5 /* OpenSourceLicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseView.swift; sourceTree = "<group>"; };
 		6177289C2BF742D8006015DD /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		6177289E2BF74F01006015DD /* DatePickerPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerPopover.swift; sourceTree = "<group>"; };
+		617B36F32BF7819500079BFE /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		8456B1B22BF1BFA300E2C4F4 /* CustomCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCarView.swift; path = Views/CustomCarView.swift; sourceTree = SOURCE_ROOT; };
 		8456B1B42BF1BFCB00E2C4F4 /* EmpthElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmpthElementView.swift; path = Views/EmpthElementView.swift; sourceTree = SOURCE_ROOT; };
 		8456B1B62BF1C03100E2C4F4 /* NavigationStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationStackModifier.swift; path = Views/NavigationStackModifier.swift; sourceTree = SOURCE_ROOT; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				61675D152BF18DC200C24728 /* TripsView.swift */,
+				617B36F32BF7819500079BFE /* Trip.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				84BE5AF22BEE200A00A8864C /* IOS_Assignment_3App.swift in Sources */,
 				8456B1BD2BF1DD3700E2C4F4 /* PopularBrandsView.swift in Sources */,
 				61675D362BF1BB0D00C24728 /* TripDateView.swift in Sources */,
+				617B36F42BF7819500079BFE /* Trip.swift in Sources */,
 				849EED2E2BF33829005396A7 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

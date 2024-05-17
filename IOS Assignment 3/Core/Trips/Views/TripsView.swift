@@ -1,5 +1,5 @@
 //
-//  Tripsview.swift
+//  TripsView.swift
 //  IOS Assignment 3
 //
 //  Created by 李昌霖 on 13/5/2024.
@@ -13,6 +13,7 @@ enum TabSelection: String, CaseIterable {
 }
 
 struct TripsView: View {
+    @Binding var bookedTrips: [Trip]
     @State private var tabSelection: TabSelection = .booked
 
     var body: some View {
@@ -28,7 +29,13 @@ struct TripsView: View {
 
                 switch tabSelection {
                 case .booked:
-                    TripsEmptyView(imageName: "car", title: "No trips")
+                    if bookedTrips.isEmpty {
+                        TripsEmptyView(imageName: "car", title: "No trips")
+                    } else {
+                        List(bookedTrips) { trip in
+                            Text(trip.carName)
+                        }
+                    }
                 case .history:
                     TripsEmptyView(imageName: "car", title: "No previous trips")
                 }
@@ -44,18 +51,18 @@ struct TripsView: View {
 
 struct TripsView_Previews: PreviewProvider {
     static var previews: some View {
-        TripsView()
+        TripsView(bookedTrips: .constant([])) 
     }
 }
 
-// Updated the EmptyElementView to TripsEmptyView to avoid redeclaration
+
 struct TripsEmptyView: View {
     var imageName: String
     var title: String
 
     var body: some View {
         VStack {
-            Image(systemName: imageName) // Assuming using SF Symbols
+            Image(systemName: imageName)
                 .font(.largeTitle)
             Text(title)
                 .font(.title)

@@ -9,11 +9,12 @@ import SwiftUI
 
 struct MainTabbarView: View {
     @StateObject private var viewModel = ExploreViewModel()
+    @State private var bookedTrips: [Trip] = [] 
     
     var body: some View {
         NavigationStack {
             TabView {
-                ExploreView(viewModel: viewModel)
+                ExploreView(viewModel: viewModel, bookedTrips: $bookedTrips)
                     .tabItem {
                         VStack {
                             Image(systemName: "magnifyingglass")
@@ -21,7 +22,7 @@ struct MainTabbarView: View {
                         }
                     }
                 
-                FavoritesView(viewModel: viewModel)
+                FavoritesView(viewModel: viewModel, bookedTrips: $bookedTrips) 
                     .tabItem {
                         VStack {
                             Image(systemName: "heart")
@@ -29,7 +30,7 @@ struct MainTabbarView: View {
                         }
                     }
                 
-                TripsView()
+                TripsView(bookedTrips: $bookedTrips)
                     .tabItem {
                         VStack {
                             Image(systemName: "car")
