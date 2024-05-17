@@ -9,6 +9,12 @@ import SwiftUI
 
 struct PaymentView: View {
     var totalPrice: Int
+    @State private var cardNumber: String = ""
+    @State private var expiryDate: String = ""
+    @State private var cvc: String = ""
+    @Environment(\.dismiss) private var dismiss
+    @Binding var bookedTrips: [Trip]
+    var carName: String
     
     var body: some View {
         VStack {
@@ -20,8 +26,27 @@ struct PaymentView: View {
                 .font(.title)
                 .padding()
             
+            VStack(alignment: .leading, spacing: 20) {
+                TextField("Card Number", text: $cardNumber)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                
+                TextField("Expiry Date (MM/YY)", text: $expiryDate)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                
+                TextField("CVC", text: $cvc)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+            }
+            .padding(.horizontal)
+            
+            Spacer()
+            
             Button(action: {
-                // Handle payment processing here
+                let newTrip = Trip(carName: carName, date: Date())
+                bookedTrips.append(newTrip)
+                dismiss()
             }) {
                 Text("Pay Now")
                     .foregroundColor(.white)
@@ -38,5 +63,5 @@ struct PaymentView: View {
 }
 
 #Preview {
-    PaymentView(totalPrice: 100)
+    PaymentView(totalPrice: 100, bookedTrips: .constant([]), carName: "Sample Car")
 }

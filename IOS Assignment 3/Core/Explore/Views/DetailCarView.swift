@@ -12,12 +12,14 @@ struct DetailCarView: View {
     @StateObject private var viewModel: ExploreViewModel
     @State private var totalPrice: Int = 0
     @State private var showPaymentView: Bool = false
-    
-    init(viewModel: ExploreViewModel, index: Int) {
+    @Binding var bookedTrips: [Trip]
+
+    init(viewModel: ExploreViewModel, index: Int, bookedTrips: Binding<[Trip]>) {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.index = index
+        self._bookedTrips = bookedTrips
     }
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -32,7 +34,7 @@ struct DetailCarView: View {
         .toolbar(.hidden, for: .tabBar)
         .overlay(bottomBar)
         .sheet(isPresented: $showPaymentView) {
-            PaymentView(totalPrice: totalPrice)
+            PaymentView(totalPrice: totalPrice, bookedTrips: $bookedTrips, carName: viewModel.cars[index].carName)
         }
     }
 
@@ -49,7 +51,7 @@ struct DetailCarView: View {
         }
         .padding(.horizontal)
     }
-    
+
     private var detailedInfoSections: some View {
         VStack {
             Divider()
@@ -70,7 +72,7 @@ struct DetailCarView: View {
             Spacer().frame(height: 100)
         }
     }
-    
+
     private var bottomBar: some View {
         VStack {
             Spacer()
@@ -82,7 +84,7 @@ struct DetailCarView: View {
         }
         .ignoresSafeArea()
     }
-    
+
     private var priceButton: some View {
         HStack {
             priceDetails
@@ -92,7 +94,7 @@ struct DetailCarView: View {
         .padding(.horizontal, 10)
         .padding(.vertical)
     }
-    
+
     private var priceDetails: some View {
         VStack {
             Text("\(viewModel.cars[index].pricePerDay)$ per day")
@@ -103,7 +105,7 @@ struct DetailCarView: View {
                 .underline()
         }
     }
-    
+
     private var continueButton: some View {
         Button(action: {
             showPaymentView.toggle()
@@ -118,7 +120,7 @@ struct DetailCarView: View {
 }
 
 #Preview {
-    DetailCarView(viewModel: ExploreViewModel(), index: 0)
+    DetailCarView(viewModel: ExploreViewModel(), index: 0, bookedTrips: .constant([]))
 }
 
 struct CarInfoView: View {

@@ -9,9 +9,11 @@ import SwiftUI
 
 struct PopularBrandsView: View {
     @StateObject private var viewModel: ExploreViewModel
+    @Binding var bookedTrips: [Trip] 
 
-    init(viewModel: ExploreViewModel) {
+    init(viewModel: ExploreViewModel, bookedTrips: Binding<[Trip]>) { 
         self._viewModel = StateObject(wrappedValue: viewModel)
+        self._bookedTrips = bookedTrips 
     }
 
     var body: some View {
@@ -33,7 +35,7 @@ struct PopularBrandsView: View {
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(viewModel.brand) { brand in
-                        NavigationLink(destination: BrandsCarView(brand: brand, viewModel: viewModel)) {
+                        NavigationLink(destination: BrandsCarView(brand: brand, viewModel: viewModel, bookedTrips: $bookedTrips)) {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(.white)
                                 .frame(width: 150, height: 200)
@@ -57,5 +59,5 @@ struct PopularBrandsView: View {
 }
 
 #Preview {
-    PopularBrandsView(viewModel: ExploreViewModel())
+    PopularBrandsView(viewModel: ExploreViewModel(), bookedTrips: .constant([]))
 }
