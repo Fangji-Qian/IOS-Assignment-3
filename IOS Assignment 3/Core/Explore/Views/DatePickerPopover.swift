@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DatePickerPopover: View {
+    @Environment(\.dismiss) var dismiss
     @Binding var selectedDates: Set<DateComponents>
     @Binding var totalPrice: Int
     var pricePerDay: Int
@@ -99,7 +100,7 @@ struct DatePickerPopover: View {
     
     private var saveButton: some View {
         Button(action: {
-            // Add your save action here
+            dismiss()
         }) {
             Text("Save")
                 .foregroundStyle(.white)
@@ -129,16 +130,25 @@ struct DatePickerPopover: View {
     private func connectSelectedDates() {
         guard selectedDates.count >= 2 else { return }
         let sortedDates = selectedDates.sorted { ($0.date ?? Date()) < ($1.date ?? Date()) }
-        selectedDates = Set(Calendar.current.range(of: .day, in: .month, for: sortedDates.first!.date!)!.map { date -> DateComponents in
-            var components = DateComponents()
-            components.day = date
-            components.month = sortedDates.first!.month
-            components.year = sortedDates.first!.year
-            return components
-        }.filter { $0.date! <= sortedDates.last!.date! })
+        
+        guard let firstDate = sortedDates.first?.date, let lastDate = sortedDates.last?.date else { return }
+        
+        var allDates = [DateComponents]()
+        var currentDate = firstDate
+        
+        while currentDate <= lastDate {
+            let components = Calendar.current.dateComponents([.year, .month, .day], from: currentDate)
+            allDates.append(components)
+            currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
+        }
+        
+        selectedDates = Set(allDates)
     }
 }
 
-#Preview {
-    DatePickerPopover(selectedDates: .constant([DateComponents()]), totalPrice: .constant(100), pricePerDay: 50, startDate: .constant(Date()), endDate: .constant(Date()))
+struct DatePickerPopover_Previews: PreviewProvider {
+    static var previews: some View {
+        DatePickerPopover(selectedDates: .constant([DateComponents()]), totalPrice: .constant(100), pricePerDay: 50, startDate: .constant(Date()), endDate: .constant(Date()))
+    }
 }
+

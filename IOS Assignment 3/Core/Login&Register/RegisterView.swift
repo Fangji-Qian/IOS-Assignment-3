@@ -66,7 +66,7 @@ struct RegisterView: View {
     func registerUser(email: String, password: String) {
         if DatabaseManager.shared.registerUser(email: email, password: password) {
             isRegistrationComplete = true
-            presentationMode.wrappedValue.dismiss() // 返回上一个视图
+            presentationMode.wrappedValue.dismiss() 
         } else {
             alertMessage = "Registration failed. Please try again."
             showAlert = true

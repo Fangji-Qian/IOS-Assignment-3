@@ -29,10 +29,10 @@ struct TripDateView: View {
         ])
     }
     
-    func formattedDate(date: Date) -> String {
+    func formattedDate(addedDays: Int) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE d MMM yyyy, HH:mm"
-        return dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "EEEE d MMM "
+        return dateFormatter.string(from: Calendar.current.date(byAdding: .day, value: addedDays, to: Date()) ?? Date())
     }
     
     var body: some View {
@@ -55,8 +55,8 @@ struct TripDateView: View {
                 .resizable()
                 .frame(width: 24, height: 24)
             VStack(alignment: .leading) {
-                Text("\(formattedDate(date: startDate))")
-                Text("\(formattedDate(date: endDate))")
+                Text(startDate, style: .date) + Text(", \(startDate, style: .time)")
+                Text(endDate, style: .date) + Text(", \(endDate, style: .time)")
             }
             Spacer()
             Button {
