@@ -24,6 +24,8 @@
 		6172DC6D2BF5D5EC007FC0E5 /* ContactSupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC6C2BF5D5EC007FC0E5 /* ContactSupportView.swift */; };
 		6172DC6F2BF5D614007FC0E5 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC6E2BF5D614007FC0E5 /* LegalView.swift */; };
 		6172DC712BF5D62D007FC0E5 /* OpenSourceLicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172DC702BF5D62D007FC0E5 /* OpenSourceLicenseView.swift */; };
+		6177289D2BF742D8006015DD /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177289C2BF742D8006015DD /* PaymentView.swift */; };
+		6177289F2BF74F01006015DD /* DatePickerPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177289E2BF74F01006015DD /* DatePickerPopover.swift */; };
 		8456B1B32BF1BFA300E2C4F4 /* CustomCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B22BF1BFA300E2C4F4 /* CustomCarView.swift */; };
 		8456B1B52BF1BFCB00E2C4F4 /* EmpthElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B42BF1BFCB00E2C4F4 /* EmpthElementView.swift */; };
 		8456B1B72BF1C03100E2C4F4 /* NavigationStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B1B62BF1C03100E2C4F4 /* NavigationStackModifier.swift */; };
@@ -80,6 +82,8 @@
 		6172DC6C2BF5D5EC007FC0E5 /* ContactSupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSupportView.swift; sourceTree = "<group>"; };
 		6172DC6E2BF5D614007FC0E5 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
 		6172DC702BF5D62D007FC0E5 /* OpenSourceLicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseView.swift; sourceTree = "<group>"; };
+		6177289C2BF742D8006015DD /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		6177289E2BF74F01006015DD /* DatePickerPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerPopover.swift; sourceTree = "<group>"; };
 		8456B1B22BF1BFA300E2C4F4 /* CustomCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCarView.swift; path = Views/CustomCarView.swift; sourceTree = SOURCE_ROOT; };
 		8456B1B42BF1BFCB00E2C4F4 /* EmpthElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmpthElementView.swift; path = Views/EmpthElementView.swift; sourceTree = SOURCE_ROOT; };
 		8456B1B62BF1C03100E2C4F4 /* NavigationStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationStackModifier.swift; path = Views/NavigationStackModifier.swift; sourceTree = SOURCE_ROOT; };
@@ -198,12 +202,14 @@
 			children = (
 				8456B1BC2BF1DD3700E2C4F4 /* PopularBrandsView.swift */,
 				8456B1BA2BF1DD2F00E2C4F4 /* ExploreView.swift */,
+				6177289C2BF742D8006015DD /* PaymentView.swift */,
 				8456B1B82BF1DD2700E2C4F4 /* CustomSearchBar.swift */,
 				61675D2D2BF1BA3900C24728 /* TopCarsView.swift */,
 				61675D2F2BF1BA7A00C24728 /* DetailCarView.swift */,
 				61675D312BF1BAB000C24728 /* MyInsuranceView.swift */,
 				61675D332BF1BAEA00C24728 /* ImageViewPager.swift */,
 				61675D352BF1BB0D00C24728 /* TripDateView.swift */,
+				6177289E2BF74F01006015DD /* DatePickerPopover.swift */,
 				849EED242BF24FB5005396A7 /* BrandsCarView.swift */,
 			);
 			path = Views;
@@ -485,6 +491,7 @@
 				61675D342BF1BAEA00C24728 /* ImageViewPager.swift in Sources */,
 				61675D2E2BF1BA3900C24728 /* TopCarsView.swift in Sources */,
 				61675D1C2BF18F4900C24728 /* EditProfileView.swift in Sources */,
+				6177289D2BF742D8006015DD /* PaymentView.swift in Sources */,
 				8456B1BB2BF1DD2F00E2C4F4 /* ExploreView.swift in Sources */,
 				61675D162BF18DC200C24728 /* TripsView.swift in Sources */,
 				61675D322BF1BAB000C24728 /* MyInsuranceView.swift in Sources */,
@@ -498,6 +505,7 @@
 				61675D202BF1901A00C24728 /* NotificationsView.swift in Sources */,
 				849EED2A2BF337B3005396A7 /* LoginView.swift in Sources */,
 				61675D1E2BF18FE800C24728 /* InboxView.swift in Sources */,
+				6177289F2BF74F01006015DD /* DatePickerPopover.swift in Sources */,
 				849EED2C2BF337F6005396A7 /* RegisterView.swift in Sources */,
 				61675D1A2BF18F0500C24728 /* MoreView.swift in Sources */,
 				61675D302BF1BA7A00C24728 /* DetailCarView.swift in Sources */,

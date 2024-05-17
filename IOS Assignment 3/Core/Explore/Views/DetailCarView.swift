@@ -10,6 +10,8 @@ import SwiftUI
 struct DetailCarView: View {
     let index: Int
     @StateObject private var viewModel: ExploreViewModel
+    @State private var totalPrice: Int = 0
+    @State private var showPaymentView: Bool = false
     
     init(viewModel: ExploreViewModel, index: Int) {
         self._viewModel = StateObject(wrappedValue: viewModel)
@@ -29,7 +31,9 @@ struct DetailCarView: View {
         .background(Color(.systemGray6))
         .toolbar(.hidden, for: .tabBar)
         .overlay(bottomBar)
-        
+        .sheet(isPresented: $showPaymentView) {
+            PaymentView(totalPrice: totalPrice)
+        }
     }
 
     private var carInfoSection: some View {
@@ -49,7 +53,7 @@ struct DetailCarView: View {
     private var detailedInfoSections: some View {
         VStack {
             Divider()
-            TripDateView()
+            TripDateView(pricePerDay: viewModel.cars[index].pricePerDay, totalPrice: $totalPrice)
             Divider()
             LocationView(title: "Pick & Return", message: "Sydney")
             CancellationView(title: "Cancellation Policy", message: "Free")
@@ -63,7 +67,7 @@ struct DetailCarView: View {
             CarInfoView(title: "Description", message: viewModel.cars[index].description)
             Divider()
             HostView(title: "published by", message: viewModel.cars[index].hostName, imageName: viewModel.cars[index].hostImageName, joinDate: viewModel.cars[index].hostJoinDate)
-            Spacer().frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+            Spacer().frame(height: 100)
         }
     }
     
@@ -83,7 +87,7 @@ struct DetailCarView: View {
         HStack {
             priceDetails
             Spacer()
-            NextStepButton
+            continueButton
         }
         .padding(.horizontal, 10)
         .padding(.vertical)
@@ -94,18 +98,20 @@ struct DetailCarView: View {
             Text("\(viewModel.cars[index].pricePerDay)$ per day")
                 .font(.headline)
                 .fontWeight(.semibold)
-            Text("\(viewModel.cars[index].pricePerDay * 2)$ total")
+            Text("\(totalPrice)$ total")
                 .font(.subheadline)
                 .underline()
         }
     }
     
-    private var NextStepButton: some View {
-        Button(action: {}) {
-            Text("Next Step")
-                .foregroundStyle(.white)
+    private var continueButton: some View {
+        Button(action: {
+            showPaymentView.toggle()
+        }) {
+            Text("Continue")
+                .foregroundColor(.white)
                 .frame(width: 100, height: 40)
-                .background(.blue)
+                .background(Color.blue)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
@@ -143,9 +149,8 @@ struct LocationView: View {
                 Image(systemName: "mappin.and.ellipse.circle")
                     .resizable()
                     .frame(width: 24, height: 24)
-                    Text(message)
+                Text(message)
             }
-            
         }
         .padding(.horizontal)
     }
@@ -172,7 +177,6 @@ struct CancellationView: View {
                         .foregroundStyle(.gray)
                 }
             }
-            
         }
         .padding(.horizontal)
     }
@@ -202,7 +206,7 @@ struct InsuranceInfoView: View {
         }
         .padding(.horizontal)
         .sheet(isPresented: $showInsuranceSheet) {
-           MyInsuranceView()
+            MyInsuranceView()
         }
     }
 }
@@ -241,7 +245,6 @@ struct CarBasicsView: View {
                 }
             }
             .scrollIndicators(.hidden)
-            
         }
         .padding(.horizontal)
     }
@@ -270,7 +273,6 @@ struct HostView: View {
                         .font(.subheadline)
                 }
             }
-            
         }
         .padding(.horizontal)
     }

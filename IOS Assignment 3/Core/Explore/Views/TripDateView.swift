@@ -15,18 +15,24 @@ struct TripDateView: View {
     
     @State private var selectedDates: Set<DateComponents>
     @State private var isDatePickerPresented: Bool = false
+    @Binding var totalPrice: Int
+    var pricePerDay: Int
+    @State private var startDate: Date = Date()
+    @State private var endDate: Date = Calendar.current.date(byAdding: .day, value: 2, to: Date()) ?? Date()
     
-    init() {
+    init(pricePerDay: Int, totalPrice: Binding<Int>) {
+        self.pricePerDay = pricePerDay
+        self._totalPrice = totalPrice
         self._selectedDates = State(initialValue: [
             .init(timeZone: .gmt, year: currentYear, month: currentMonth, day: currentDay, hour: 10),
-            .init(timeZone: .gmt, year: 2023, month: 12, day: returnDay, hour: 10)
+            .init(timeZone: .gmt, year: 2024, month: 12, day: returnDay, hour: 10)
         ])
     }
     
-    func formattedDate(addedDays: Int) -> String {
+    func formattedDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE d MMM "
-        return dateFormatter.string(from: Calendar.current.date(byAdding: .day, value: addedDays, to: Date()) ?? Date())
+        dateFormatter.dateFormat = "EEEE d MMM yyyy, HH:mm"
+        return dateFormatter.string(from: date)
     }
     
     var body: some View {
@@ -39,7 +45,7 @@ struct TripDateView: View {
         }
         .padding(.horizontal)
         .popover(isPresented: $isDatePickerPresented, arrowEdge: .top) {
-            DatePickerPopover(selectedDates: $selectedDates)
+            DatePickerPopover(selectedDates: $selectedDates, totalPrice: $totalPrice, pricePerDay: pricePerDay, startDate: $startDate, endDate: $endDate)
         }
     }
     
@@ -49,8 +55,8 @@ struct TripDateView: View {
                 .resizable()
                 .frame(width: 24, height: 24)
             VStack(alignment: .leading) {
-                Text("\(formattedDate(addedDays: 0)), 10:00")
-                Text("\(formattedDate(addedDays: 2)), 10:00")
+                Text("\(formattedDate(date: startDate))")
+                Text("\(formattedDate(date: endDate))")
             }
             Spacer()
             Button {
@@ -64,95 +70,6 @@ struct TripDateView: View {
     }
 }
 
-struct DatePickerPopover: View {
-    @Binding var selectedDates: Set<DateComponents>
-    @State private var start: Double = 10
-    @State private var end: Double = 10
-    
-    var body: some View {
-        ScrollView {
-            VStack(spacing: 30) {
-                handleIndicator
-                dateHeaderView
-                Divider().padding(.bottom)
-                datePicker
-                Divider().padding(.top)
-                sliders
-                saveButton
-                Spacer()
-            }
-            .padding(.vertical)
-        }
-        .scrollIndicators(.hidden)
-    }
-    
-    private var handleIndicator: some View {
-        Rectangle()
-            .frame(width: 60, height: 5)
-            .foregroundStyle(Color(.systemGray5))
-            .padding(.vertical)
-    }
-    
-    private var dateHeaderView: some View {
-        let today = Date()
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 2, to: Date()) ?? Date()
-        
-        return HStack {
-            VStack {
-                Text(today, style: .date)
-                    .fontWeight(.bold)
-                Text("10:00")
-            }
-            Spacer()
-            Image(systemName: "arrowshape.forward.fill")
-            Spacer()
-            VStack {
-                Text(tomorrow, style: .date)
-                    .fontWeight(.bold)
-                Text("10:00")
-            }
-        }
-        .font(.footnote)
-        .padding(.horizontal)
-    }
-    
-    private var datePicker: some View {
-        MultiDatePicker("Select Dates", selection: $selectedDates, in: Date()...)
-            .frame(height: 300)
-            .padding(.horizontal)
-    }
-    
-    private var sliders: some View {
-        VStack(spacing: 15) {
-            slider(label: "Start: 10", value: $start)
-            slider(label: "End: 10", value: $end)
-        }
-        .padding(.horizontal)
-    }
-    
-    private func slider(label: String, value: Binding<Double>) -> some View {
-        HStack {
-            Text(label)
-                .font(.footnote)
-                .foregroundStyle(.gray)
-            Slider(value: value, in: 0...24)
-        }
-    }
-    
-    private var saveButton: some View {
-        Button(action: {
-            // Add your save action here
-        }) {
-            Text("Save")
-                .foregroundStyle(.white)
-                .frame(width: UIScreen.main.bounds.width - 35, height: 45)
-                .background(Color.blue)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-        }
-        .padding(.top)
-    }
-}
-
 #Preview {
-    TripDateView()
+    TripDateView(pricePerDay: 50, totalPrice: .constant(100))
 }
