@@ -7,6 +7,7 @@ git clone https://github.com/Fangji-Qian/ios-assignment-3.git
 
 Contribution in commits flow:
 Albert Lii - Changlin Li
+mariacarrie - Changlin Li
 Fangji-Qian - Fangji Qian
 Shihanhuang-uts - Shihan Huang
 
